@@ -1,0 +1,24 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class ShoppingCart {
+    public static void main(String[] args) {
+        JFrame f=new JFrame("Cart");
+        JCheckBox c1=new JCheckBox("Laptop - 50000");
+        JCheckBox c2=new JCheckBox("Phone - 20000");
+        JCheckBox c3=new JCheckBox("Headphones - 2000");
+        JButton b=new JButton("Generate Bill");
+        JLabel l=new JLabel();
+        f.setLayout(new FlowLayout());
+        f.add(c1);f.add(c2);f.add(c3);f.add(b);f.add(l);
+        b.addActionListener(e->{
+            int total=0;String s="";
+            if(c1.isSelected()){total+=50000;s+="Laptop ";}
+            if(c2.isSelected()){total+=20000;s+="Phone ";}
+            if(c3.isSelected()){total+=2000;s+="Headphones ";}
+            l.setText("Items: "+s+" Total: "+total);
+        });
+        f.setSize(300,200);f.setVisible(true);
+        f.setDefaultCloseOperation(3);
+    }
+}
